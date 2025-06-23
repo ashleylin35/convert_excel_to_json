@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard with ECharts</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+  <style>
+    .chart {
+      width: 100%;
+      height: 400px;
+      margin-bottom: 50px;
+    }
+
+    .filter-bar {
+      margin-bottom: 16px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>📊 Clustered Bar Chart</h2>
+  <div class="filter-bar">
+    <label for="countrySelect">Country: </label>
+    <select id="countrySelect"></select>
+  </div>
+  <div id="clusterChart" class="chart"></div>
+
+  <h2>📈 Quantity (Bar) + Price Paid (Line)</h2>
+  <div id="comboChart" class="chart"></div>
+
+  <script>
+    // Clustered Bar Chart with Country Filter
+    fetch('https://raw.githubusercontent.com/ashleylin35/convert_excel_to_json/refs/heads/main/clustered_chart_data.json')
+      .then(res => res.json())
+      .then(data => {
+        // 1. Get all countries (unique, sorted)
+        const countries = [...new Set(data.map(d => d.Country))].sort();
+        const select = document.getElementById('countrySelect');
+
+        // 2. Fill country dropdown
+        countries.forEach(country => {
+          const option = document.createElement('option');
+          option.value = country;
+          option.text = country;
+          select.appendChild(option);
+        });
+
+        // 3. Chart rendering function
+        const chart = echarts.init(document.getElementById('clusterChart'));
+        function renderChart(country) {
+          const filtered = data.filter(d => d.Country === country);
+          const x = filtered.map(d => d["Product name"]);
+          const price = filtered.map(d => d["List Price per unit"]);
+          const cost = filtered.map(d => d["Production costs per unit"]);
+
+          chart.setOption({
+            tooltip: { trigger: 'axis' },
+            legend: { data: ['List Price', 'Production Cost'] },
+            xAxis: { type: 'category', data: x },
+            yAxis: { type: 'value' },
+            series: [
+              { name: 'List Price', type: 'bar', data: price },
+              { name: 'Production Cost', type: 'bar', data: cost }
+            ]
+          });
+        }
+
+        // 4. Initial render
+        renderChart(countries[0]);
+
+        // 5. Listen for country change
+        select.addEventListener('change', e => {
+          renderChart(e.target.value);
+        });
+      });
+
+    // Combo Chart - 保持原有逻辑
+    fetch('https://raw.githubusercontent.com/ashleylin35/convert_excel_to_json/refs/heads/main/combo_chart_data.json')
+      .then(res => res.json())
+      .then(data => {
+        const x = data.map(d => d["Product Name"]);
+        const quantity = data.map(d => d["Quantity"]);
+        const price = data.map(d => d["Price Paid"]);
+
+        const chart = echarts.init(document.getElementById('comboChart'));
+        chart.setOption({
+          tooltip: { trigger: 'axis' },
+          legend: { data: ['Quantity', 'Price Paid'] },
+          xAxis: { type: 'category', data: x },
+          yAxis: [
+            { type: 'value', name: 'Quantity' },
+            { type: 'value', name: 'Price Paid' }
+          ],
+          series: [
+            { name: 'Quantity', type: 'bar', data: quantity },
+            {
+              name: 'Price Paid',
+              type: 'line',
+              yAxisIndex: 1,
+              data: price
+            }
+          ]
+        });
+      });
+  </script>
+</body>
+
+</html>
