@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>专辑数据可视化</title>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5"></script>
+  <style>
+    body {
+      font-family: "微软雅黑", Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .chart-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 30px auto;
+    }
+    .chart {
+      width: 100%;
+      height: 400px;
+      margin-bottom: 40px;
+      background-color: #fff;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      padding: 10px;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>专辑数据可视化</h1>
+  <div class="chart-container">
+    <div id="artist_bar" class="chart"></div>
+    <div id="genre_pie" class="chart"></div>
+    <div id="province_map" class="chart"></div>
+    <div id="year_line" class="chart"></div>
+    <div id="album_bar" class="chart"></div>
+  </div>
+
+  <script>
+    let artistBar, genrePie, provinceMap, yearLine, albumBar;
+
+    // 你提供的省份销量数据
+    const provinceData = [
+      { province: "江苏省", total_sales: 51.0 },
+      { province: "吉林省", total_sales: 74.2 },
+      { province: "四川省", total_sales: 23.0 },
+      { province: "云南省", total_sales: 102.1 },
+      { province: "贵州省", total_sales: 27.9 },
+      { province: "湖南省", total_sales: 259.9 }
+    ];
+
+    // 1. 加载中国地图 GeoJSON 并注册
+    fetch('https://geo.datav.aliyun.com/areas/bound/100000_full.json')
+      .then(res => res.json())
+      .then(chinaGeoJson => {
+        echarts.registerMap('china', chinaGeoJson);
+
+        // 2. 加载你自己的数据
+        return fetch('https://raw.githubusercontent.com/ashleylin35/convert_excel_to_json/refs/heads/main/visualization_data.json');
+      })
+      .then(res => res.json())
+      .then(data => {
+        // 艺人柱状图
+        artistBar = echarts.init(document.getElementById('artist_bar'));
+        artistBar.setOption({
+          title: { text: '艺人总销量与上榜专辑数', left: 'center' },
+          tooltip: { trigger: 'axis' },
+          legend: { data: ['总销量', '上榜专辑数'], top: 30 },
+          xAxis: { type: 'category', data: data.artist_bar.map(d => d.Artist) },
+          yAxis: [
+            { type: 'value', name: '总销量' },
+            { type: 'value', name: '上榜专辑数' }
+          ],
+          series: [
+            { name: '总销量', type: 'bar', data: data.artist_bar.map(d => d.total_sales), yAxisIndex: 0 },
+            { name: '上榜专辑数', type: 'bar', data: data.artist_bar.map(d => d.album_count), yAxisIndex: 1 }
+          ]
+        });
+
+        // 流派饼图
+        genrePie = echarts.init(document.getElementById('genre_pie'));
+        genrePie.setOption({
+          title: { text: '各流派销量占比', left: 'center' },
+          tooltip: { trigger: 'item' },
+          legend: { orient: 'vertical', left: 'left' },
+          series: [{
+            name: '销量',
+            type: 'pie',
+            radius: '60%',
+            data: data.genre_pie.map(d => ({ name: d.genre, value: d.total_sales })),
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            }
+          }]
+        });
+
+        // 年代折线图
+        yearLine = echarts.init(document.getElementById('year_line'));
+        yearLine.setOption({
+          title: { text: '发行年代销量趋势', left: 'center' },
+          tooltip: { trigger: 'axis' },
+          xAxis: { type: 'category', data: data.year_line.map(d => d.year_banded) },
+          yAxis: { type: 'value', name: '总销量' },
+          series: [{
+            name: '总销量',
+            type: 'line',
+            data: data.year_line.map(d => d.total_sales),
+            smooth: true
+          }]
+        });
+
+        // 单张专辑柱状图
+        albumBar = echarts.init(document.getElementById('album_bar'));
+        albumBar.setOption({
+          title: { text: '单张专辑销量排名', left: 'center' },
+          tooltip: { trigger: 'axis' },
+          xAxis: { type: 'category', data: data.album_bar.map(d => d.Album) },
+          yAxis: { type: 'value', name: '销量' },
+          series: [{
+            name: '销量',
+            type: 'bar',
+            data: data.album_bar.map(d => d.sales)
+          }]
+        });
+
+        // 中国地图
+        provinceMap = echarts.init(document.getElementById('province_map'));
+        provinceMap.setOption({
+          title: { text: '中国各省销量分布', left: 'center' },
+          tooltip: { trigger: 'item', formatter: '{b}<br/>销量: {c}' },
+          visualMap: {
+            min: 0,
+            max: Math.max(...provinceData.map(d => d.total_sales)),
+            left: 'left',
+            top: 'bottom',
+            text: ['高', '低'],
+            inRange: { color: ['#e0ffff', '#006edd'] },
+            calculable: true
+          },
+          series: [{
+            name: '销量',
+            type: 'map',
+            map: 'china',
+            roam: true,
+            label: { show: true },
+            data: provinceData.map(d => ({ name: d.province, value: d.total_sales }))
+          }]
+        });
+      })
+
+      
+      .catch(err => console.error('加载失败', err));
+
+    // 统一响应式缩放
+    window.onresize = () => {
+      artistBar && artistBar.resize();
+      genrePie && genrePie.resize();
+      provinceMap && provinceMap.resize();
+      yearLine && yearLine.resize();
+      albumBar && albumBar.resize();
+    };
+  </script>
+</body>
+</html>
