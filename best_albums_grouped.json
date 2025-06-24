@@ -1,0 +1,162 @@
+[
+  {
+    "year_band": "1970s",
+    "genre": "Hard rock",
+    "gender": "Male",
+    "album": "Thriller",
+    "artist": "Michael Jackson",
+    "sales": 29
+  },
+  {
+    "year_band": "1970s",
+    "genre": "Rock",
+    "gender": "Male",
+    "album": "Their Greatest Hits (1971-1975)",
+    "artist": "Eagles",
+    "sales": 24.4
+  },
+  {
+    "year_band": "1970s",
+    "genre": "Soft rock",
+    "gender": "Male",
+    "album": "Hotel California",
+    "artist": "Eagles",
+    "sales": 41.2
+  },
+  {
+    "year_band": "1970s",
+    "genre": "Soft rock",
+    "gender": "Male",
+    "album": "Come On Over",
+    "artist": "Shania Twain",
+    "sales": 31.5
+  },
+  {
+    "year_band": "1970s",
+    "genre": "Soft rock",
+    "gender": "Male & Female",
+    "album": "Back in Black",
+    "artist": "AC/DC",
+    "sales": 27.9
+  },
+  {
+    "year_band": "1970s",
+    "genre": "Hard rock",
+    "gender": "Male",
+    "album": "Led Zeppelin IV",
+    "artist": "Led Zeppelin",
+    "sales": 21.7
+  },
+  {
+    "year_band": "1970s",
+    "genre": "Disco",
+    "gender": "Male",
+    "album": "The Bodyguard",
+    "artist": "Whitney Houston / Various Artists",
+    "sales": 21.6
+  },
+  {
+    "year_band": "1980s",
+    "genre": "Hard rock",
+    "gender": "Male",
+    "album": "Rumours",
+    "artist": "Fleetwood Mac",
+    "sales": 29.4
+  },
+  {
+    "year_band": "1980s",
+    "genre": "Pop",
+    "gender": "Male",
+    "album": 21,
+    "artist": "Adele",
+    "sales": 47.3
+  },
+  {
+    "year_band": "1980s",
+    "genre": "Pop",
+    "gender": "Male",
+    "album": "Metallica",
+    "artist": "Metallica",
+    "sales": 22.2
+  },
+  {
+    "year_band": "1980s",
+    "genre": "Hard rock",
+    "gender": "Male",
+    "album": "Jagged Little Pill",
+    "artist": "Alanis Morissette",
+    "sales": 21.9
+  },
+  {
+    "year_band": "1990s",
+    "genre": "Hard rock",
+    "gender": "Male",
+    "album": "The Dark Side of the Moon",
+    "artist": "Pink Floyd",
+    "sales": 25.2
+  },
+  {
+    "year_band": "1990s",
+    "genre": "Pop",
+    "gender": "Female",
+    "album": 1,
+    "artist": "The Beatles",
+    "sales": 28.4
+  },
+  {
+    "year_band": "1990s",
+    "genre": "Pop",
+    "gender": "Male & Female",
+    "album": "Gold: Greatest Hits",
+    "artist": "ABBA",
+    "sales": 23
+  },
+  {
+    "year_band": "1990s",
+    "genre": "Rock",
+    "gender": "Female",
+    "album": "Bad ",
+    "artist": "Michael Jackson",
+    "sales": 24.4
+  },
+  {
+    "year_band": "1990s",
+    "genre": "Pop",
+    "gender": "Female",
+    "album": "Appetite for Destruction",
+    "artist": "Guns 'N' Roses",
+    "sales": 20.2
+  },
+  {
+    "year_band": "1990s",
+    "genre": "Country",
+    "gender": "Female",
+    "album": "Bat Out of Hell",
+    "artist": "Meat Loaf",
+    "sales": 29.6
+  },
+  {
+    "year_band": "1990s",
+    "genre": "Rock",
+    "gender": "Male",
+    "album": "Saturday Night Fever",
+    "artist": "Bee Gees / Various artists",
+    "sales": 20.5
+  },
+  {
+    "year_band": "2000s",
+    "genre": "Rock",
+    "gender": "Male",
+    "album": "Supernatural",
+    "artist": "Santana",
+    "sales": 23.4
+  },
+  {
+    "year_band": "2010s",
+    "genre": "Pop",
+    "gender": "Female",
+    "album": "Falling Into You",
+    "artist": "Celine Dion",
+    "sales": 25.3
+  }
+]
