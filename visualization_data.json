@@ -243,27 +243,27 @@
   ],
   "province_map": [
     {
-      "province": "江苏省",
+      "province": "江苏",
       "total_sales": 51.0
     },
     {
-      "province": "吉林省",
+      "province": "吉林",
       "total_sales": 74.2
     },
     {
-      "province": "四川省",
+      "province": "四川",
       "total_sales": 23.0
     },
     {
-      "province": "云南省",
+      "province": "云南",
       "total_sales": 102.1
     },
     {
-      "province": "贵州省",
+      "province": "贵州",
       "total_sales": 27.9
     },
     {
-      "province": "湖南省",
+      "province": "湖南",
       "total_sales": 259.9
     }
   ]
