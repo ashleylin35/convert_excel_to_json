@@ -1,0 +1,270 @@
+{
+  "artist_bar": [
+    {
+      "Artist": "ABBA",
+      "album_count": 1,
+      "total_sales": 23.0
+    },
+    {
+      "Artist": "AC/DC",
+      "album_count": 1,
+      "total_sales": 27.9
+    },
+    {
+      "Artist": "Adele",
+      "album_count": 1,
+      "total_sales": 47.3
+    },
+    {
+      "Artist": "Alanis Morissette",
+      "album_count": 1,
+      "total_sales": 21.9
+    },
+    {
+      "Artist": "Bee Gees / Various artists",
+      "album_count": 1,
+      "total_sales": 20.5
+    },
+    {
+      "Artist": "Celine Dion",
+      "album_count": 1,
+      "total_sales": 25.3
+    },
+    {
+      "Artist": "Eagles",
+      "album_count": 2,
+      "total_sales": 65.6
+    },
+    {
+      "Artist": "Fleetwood Mac",
+      "album_count": 1,
+      "total_sales": 29.4
+    },
+    {
+      "Artist": "Guns 'N' Roses",
+      "album_count": 1,
+      "total_sales": 20.2
+    },
+    {
+      "Artist": "Led Zeppelin",
+      "album_count": 1,
+      "total_sales": 21.7
+    },
+    {
+      "Artist": "Meat Loaf",
+      "album_count": 1,
+      "total_sales": 29.6
+    },
+    {
+      "Artist": "Metallica",
+      "album_count": 1,
+      "total_sales": 22.2
+    },
+    {
+      "Artist": "Michael Jackson",
+      "album_count": 2,
+      "total_sales": 53.4
+    },
+    {
+      "Artist": "Pink Floyd",
+      "album_count": 1,
+      "total_sales": 25.2
+    },
+    {
+      "Artist": "Santana",
+      "album_count": 1,
+      "total_sales": 23.4
+    },
+    {
+      "Artist": "Shania Twain",
+      "album_count": 1,
+      "total_sales": 31.5
+    },
+    {
+      "Artist": "The Beatles",
+      "album_count": 1,
+      "total_sales": 28.4
+    },
+    {
+      "Artist": "Whitney Houston / Various Artists",
+      "album_count": 1,
+      "total_sales": 21.6
+    }
+  ],
+  "genre_pie": [
+    {
+      "genre": "Country",
+      "total_sales": 29.6
+    },
+    {
+      "genre": "Disco",
+      "total_sales": 21.6
+    },
+    {
+      "genre": "Hard rock",
+      "total_sales": 127.19999999999999
+    },
+    {
+      "genre": "Pop",
+      "total_sales": 166.4
+    },
+    {
+      "genre": "Rock",
+      "total_sales": 92.69999999999999
+    },
+    {
+      "genre": "Soft rock",
+      "total_sales": 100.6
+    }
+  ],
+  "country_map": [
+    {
+      "country": "Australia",
+      "total_sales": 51.0
+    },
+    {
+      "country": "Canada",
+      "total_sales": 74.2
+    },
+    {
+      "country": "Sweden",
+      "total_sales": 23.0
+    },
+    {
+      "country": "UK",
+      "total_sales": 102.1
+    },
+    {
+      "country": "UK & USA",
+      "total_sales": 27.9
+    },
+    {
+      "country": "USA",
+      "total_sales": 259.9
+    }
+  ],
+  "year_line": [
+    {
+      "year_banded": "1970s",
+      "total_sales": 197.3
+    },
+    {
+      "year_banded": "1980s",
+      "total_sales": 120.8
+    },
+    {
+      "year_banded": "1990s",
+      "total_sales": 171.3
+    },
+    {
+      "year_banded": "2000s",
+      "total_sales": 23.4
+    },
+    {
+      "year_banded": "2010s",
+      "total_sales": 25.3
+    }
+  ],
+  "album_bar": [
+    {
+      "Album": "Thriller",
+      "sales": 29.0,
+      "Artist": "Michael Jackson"
+    },
+    {
+      "Album": "Their Greatest Hits (1971-1975)",
+      "sales": 24.4,
+      "Artist": "Eagles"
+    },
+    {
+      "Album": "Hotel California",
+      "sales": 41.2,
+      "Artist": "Eagles"
+    },
+    {
+      "Album": "Come On Over",
+      "sales": 31.5,
+      "Artist": "Shania Twain"
+    },
+    {
+      "Album": "Back in Black",
+      "sales": 27.9,
+      "Artist": "AC/DC"
+    },
+    {
+      "Album": "Led Zeppelin IV",
+      "sales": 21.7,
+      "Artist": "Led Zeppelin"
+    },
+    {
+      "Album": "The Bodyguard",
+      "sales": 21.6,
+      "Artist": "Whitney Houston / Various Artists"
+    },
+    {
+      "Album": "Rumours",
+      "sales": 29.4,
+      "Artist": "Fleetwood Mac"
+    },
+    {
+      "Album": 21,
+      "sales": 47.3,
+      "Artist": "Adele"
+    },
+    {
+      "Album": "Metallica",
+      "sales": 22.2,
+      "Artist": "Metallica"
+    },
+    {
+      "Album": "Jagged Little Pill",
+      "sales": 21.9,
+      "Artist": "Alanis Morissette"
+    },
+    {
+      "Album": "The Dark Side of the Moon",
+      "sales": 25.2,
+      "Artist": "Pink Floyd"
+    },
+    {
+      "Album": 1,
+      "sales": 28.4,
+      "Artist": "The Beatles"
+    },
+    {
+      "Album": "Gold: Greatest Hits",
+      "sales": 23.0,
+      "Artist": "ABBA"
+    },
+    {
+      "Album": "Bad ",
+      "sales": 24.4,
+      "Artist": "Michael Jackson"
+    },
+    {
+      "Album": "Appetite for Destruction",
+      "sales": 20.2,
+      "Artist": "Guns 'N' Roses"
+    },
+    {
+      "Album": "Bat Out of Hell",
+      "sales": 29.6,
+      "Artist": "Meat Loaf"
+    },
+    {
+      "Album": "Saturday Night Fever",
+      "sales": 20.5,
+      "Artist": "Bee Gees / Various artists"
+    },
+    {
+      "Album": "Supernatural",
+      "sales": 23.4,
+      "Artist": "Santana"
+    },
+    {
+      "Album": "Falling Into You",
+      "sales": 25.3,
+      "Artist": "Celine Dion"
+    }
+  ]
+}
